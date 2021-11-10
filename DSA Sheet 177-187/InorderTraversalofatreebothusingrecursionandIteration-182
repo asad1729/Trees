@@ -1,0 +1,40 @@
+# Recursive :
+
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root)
+    {
+       List<Integer> sol=new LinkedList<>();
+        temp(root,sol);
+        return sol;
+    
+    }
+    private void temp(TreeNode root,List<Integer> sol)
+    {
+        if(root==null)return;
+        temp(root.left,sol);
+        sol.add(root.val);  
+        temp(root.right,sol);
+    }
+}
+
+# Iterative :
+
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root)
+    {
+        List<Integer> res=new ArrayList<>();
+        Stack<TreeNode> stack=new Stack<>();
+        TreeNode curr=root;
+        while(curr!=null || !stack.isEmpty()){
+        while(curr!=null)
+            {
+            stack.push(curr);
+            curr=curr.left;
+        }
+        curr=stack.pop();
+        res.add(curr.val);
+        curr=curr.right;
+        }
+       return res;
+    }
+}
