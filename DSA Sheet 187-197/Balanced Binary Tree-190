@@ -1,0 +1,24 @@
+class Solution {
+    public boolean isBalanced(TreeNode root)
+    {
+        int temp=height(root);
+        if(temp==-1)
+            return false;
+        else return true;
+    }
+    int height(TreeNode node) 
+    {
+        if(node==null)return 0;
+        else
+        {
+            int lt=height(node.left);
+            int rt=height(node.right);
+            if(lt==-1 || rt==-1)return -1;
+            if(Math.abs(lt-rt)>1)return -1;
+            if(lt>rt)
+            return lt+1;
+            else 
+            return rt+1;
+        }
+    }
+}
