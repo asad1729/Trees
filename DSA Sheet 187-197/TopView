@@ -1,0 +1,29 @@
+import java.util.*;
+import javafx.util.Pair;
+class Solution
+{
+    static ArrayList<Integer> topView(Node root)
+    {
+        if(root==null)return null;
+        ArrayList<Integer> sol=new ArrayList<>();
+        Queue<Pair> queue=new LinkedList<Pair>();
+        HashMap<Integer,Integer> map=new HashMap<>();
+        queue.add(new Pair(root,0));
+        while(!queue.isEmpty())
+        {
+            Pair temp=q.remove();
+            int value=temp.data;
+            Node tempNode=temp.Node;
+            if(map.get(value)==null)map.put(value,temp.data);
+            if(tempNode.left!=null)
+            queue.add(new Pair(tempNode.left,hd-1));
+            if(tempNode.right!=null)
+            queue.add(new Pair(tempNode.right,hd+1));
+        }
+        for(Map.Entry<Integer,Integer> entry: map.entrySet())
+        {
+            ans.add(entry.getValue());
+        }
+        return ans;
+        
+    }
